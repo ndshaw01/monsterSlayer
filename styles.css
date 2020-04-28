@@ -15,6 +15,10 @@ button{
 	border-radius:10px;
 	box-shadow: 2px 2px 5px #a8a8a8;
 	border:none;
+	cursor:pointer;
+}
+button:hover{
+	background-color: #b1ff85;
 }
 
 #app{
