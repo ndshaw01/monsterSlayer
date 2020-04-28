@@ -13,33 +13,40 @@
 			<div id="player">
 				<h1>Player</h1>
 				<div class="healthbar">
-					<div class="healthprogress">
+					<div class="healthprogress" :style="playerHealthBar" :value="playerHealth">
+						{{ playerHealth }}
 					</div>
 				</div>
 			</div>
 			<div id="player">
 				<h1>Monster</h1>
 				<div class="healthbar">
-					<div class="healthprogress">
+					<div class="healthprogress" :style="monsterHealthBar" :value="monsterHealth">
+						{{ monsterHealth }}
 					</div>
 				</div>
 			</div>
 		</div>
 		<div id="buttons">
-			<div id="newGame" v-if="gameStart">
+			<div id="newGame" v-if="gameStart == 'start'">
 				<button @click="startGame">Start New Game</button>
 			</div>
-			<div id="midGame" v-else>
-				<button>Attack</button>
-				<button>Special Attack</button>
-				<button>Heal</button>
-				<button>Give Up</button>
+			<div id="midGame" v-else-if="gameStart == 'mid'">
+				<button @click="turn('attacked')">Attack</button>
+				<button @click="turn('special attacked')">Special Attack</button>
+				<button @click="turn('healed')">Heal</button>
+				<button @click="giveUp">Give Up</button>
+			</div>
+			<div id="endGame" v-else>
+				<h1 v-if="playerWins">You win!</h1>
+				<h1 v-else>The monster wins!</h1>
+				<button @click="giveUp">Try again</button>
 			</div>
 		</div>
 		<div id="log">
 			<div id="logWrapper">
-				<div class="logEntry">
-					sdsd
+				<div class="logEntry" v-for="entry in log" :class="{red:entry[0] == 'M'}">
+					{{ entry }}
 				</div>
 			</div>
 		</div>	
