@@ -55,7 +55,32 @@ button{
 }
 
 #log{
-	
+	width:100%;
+	min-height: 500px;
+	height:100%;
+	margin:50px 0px;
+	background-color: #fcfcfc;
+	border-radius:5px;
+	box-shadow: 5px 5px 5px #a8a8a8;
+	display:flex;
+	justify-content: center;
+}
+
+#logWrapper{
+	width:99%;
+	height:100%;
+	display:flex;
+	flex-direction:column;
+	text-align:center;
+}
+
+.logEntry{
+	background-color:#64cded;
+	text-align:center;
+	width:100%;
+	height:20px;
+	margin:10px 0;
+	border-radius:5px;
 }
 
 .healthbar{
